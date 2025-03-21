@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beazinha</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://1.bp.blogspot.com/-m0l5fXc0OCg/Xi4DS7Xb2GI/AAAAAAAAStU/F4qIvIAHpTE8qZU0eysGTZ7M-y6PJeu8ACNcBGAsYHQ/s1600/ENROLADOS%2B%252851%2529.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #800080;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Estilo da caixinha interativa */
+        .box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
+            display: none;
+            text-align: center;
+            animation: slideUp 0.5s ease-in-out;
+        }
+
+        /* Animação da caixinha */
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .button {
+            background-color: #800080;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #9b30b0;
+        }
+
+        /* Estilo da imagem do gatinho */
+        .kitty-img {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: none; /* Inicialmente escondida */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centraliza a imagem */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Beazinha</h1>
+    </div>
+
+    <!-- Caixinha interativa -->
+    <div class="box" id="messageBox">
+        <p>Você clicou! Agora, veja o gatinho bonitinho!</p>
+    </div>
+
+    <!-- Botão para exibir a caixinha -->
+    <div style="position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);">
+        <button class="button" onclick="showMessage()">Clique para Surpresa!</button>
+    </div>
+
+    <!-- Imagem do gatinho -->
+    <img src="https://th.bing.com/th/id/OIP.0XFFv8MHP-8mIrm0iZcqFgHaFi?w=2592&h=1936&rs=1&pid=ImgDetMain" alt="Gatinho bonitinho" class="kitty-img" id="kittyImage">
+
+    <script>
+        // Função para mostrar a caixinha interativa e o gatinho
+        function showMessage() {
+            var messageBox = document.getElementById("messageBox");
+            var kittyImage = document.getElementById("kittyImage");
+
+            // Mostra a caixinha
+            messageBox.style.display = "block"; 
+
+            // Faz a imagem do gatinho aparecer no centro da tela
+            kittyImage.style.display = "block";
+        }
+    </script>
+</body>
+</html>
