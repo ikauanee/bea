@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beazinha</title>
     <style>
+        /* Resetando margens e padding do body */
         body {
             margin: 0;
             padding: 0;
@@ -13,21 +14,34 @@
             background-size: cover;
             background-position: center;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        
+
+        /* Título "Beazinha" no topo */
         .container {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
             text-align: center;
             color: #800080;
             font-size: 3rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 20px;
+            width: 100%;
         }
 
         h1 {
             margin: 0;
+        }
+
+        /* Estilo da mensagem do gatinho logo abaixo do título Beazinha */
+        .kitty-message {
+            font-size: 1.5rem;
+            color: #800080; /* Cor roxa para a mensagem */
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px; /* Distância entre o título e a mensagem */
         }
 
         /* Estilo da caixinha interativa */
@@ -67,6 +81,8 @@
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
+            position: absolute;
+            bottom: 120px; /* Coloca o botão embaixo da imagem */
         }
 
         .button:hover {
@@ -77,8 +93,6 @@
         .kitty-img {
             width: 300px;
             height: auto;
-            margin-top: 20px;
-            border-radius: 10px;
             display: none; /* Inicialmente escondida */
             position: absolute;
             top: 50%;
@@ -86,28 +100,61 @@
             transform: translate(-50%, -50%); /* Centraliza a imagem */
         }
 
+        /* Media Query para telas pequenas (dispositivos móveis) */
+        @media (max-width: 768px) {
+            .container {
+                font-size: 2rem; /* Ajusta o tamanho da fonte para telas menores */
+            }
+
+            .button {
+                font-size: 1rem; /* Reduz o tamanho do botão para telas menores */
+                padding: 12px 25px; /* Ajusta o tamanho do botão */
+            }
+
+            .kitty-img {
+                width: 200px; /* Diminui a largura da imagem do gatinho em telas pequenas */
+            }
+        }
+
+        /* Media Query para telas muito pequenas (celulares em modo retrato) */
+        @media (max-width: 480px) {
+            .container {
+                font-size: 1.5rem; /* Ajusta ainda mais a fonte para celulares pequenos */
+            }
+
+            .box {
+                font-size: 1.2rem; /* Ajusta o tamanho da fonte da caixinha para celulares pequenos */
+                padding: 15px; /* Reduz o padding da caixinha */
+            }
+
+            .kitty-img {
+                width: 180px; /* Diminui mais ainda a imagem em telas muito pequenas */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Beazinha</h1>
+        <!-- Mensagem do gatinho logo abaixo do título -->
+        <div class="kitty-message">
+            Esse gatinho bonitinho merece um sorrisinho! 😊
+        </div>
     </div>
+
+    <!-- Botão para exibir a caixinha -->
+    <button class="button" onclick="showMessage()">Clique para Surpresa!</button>
+
+    <!-- Imagem do gatinho -->
+    <img src="https://th.bing.com/th/id/OIP.0XFFv8MHP-8mIrm0iZcqFgHaFi?w=2592&h=1936&rs=1&pid=ImgDetMain" alt="Gatinho bonitinho" class="kitty-img" id="kittyImage">
 
     <!-- Caixinha interativa -->
     <div class="box" id="messageBox">
         <p>Você clicou! Agora, veja o gatinho bonitinho!</p>
     </div>
 
-    <!-- Botão para exibir a caixinha -->
-    <div style="position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);">
-        <button class="button" onclick="showMessage()">Clique para Surpresa!</button>
-    </div>
-
-    <!-- Imagem do gatinho -->
-    <img src="https://th.bing.com/th/id/OIP.0XFFv8MHP-8mIrm0iZcqFgHaFi?w=2592&h=1936&rs=1&pid=ImgDetMain" alt="Gatinho bonitinho" class="kitty-img" id="kittyImage">
-
     <script>
-        // Função para mostrar a caixinha interativa e o gatinho
+        // Função para mostrar a caixinha interativa e a imagem do gatinho
         function showMessage() {
             var messageBox = document.getElementById("messageBox");
             var kittyImage = document.getElementById("kittyImage");
