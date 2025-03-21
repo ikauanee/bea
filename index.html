@@ -35,15 +35,6 @@
             margin: 0;
         }
 
-        /* Estilo da mensagem do gatinho logo abaixo do título Beazinha */
-        .kitty-message {
-            font-size: 1.5rem;
-            color: #800080; /* Cor roxa para a mensagem */
-            text-align: center;
-            font-weight: bold;
-            margin-top: 20px; /* Distância entre o título e a mensagem */
-        }
-
         /* Estilo da caixinha interativa */
         .box {
             position: absolute;
@@ -100,6 +91,16 @@
             transform: translate(-50%, -50%); /* Centraliza a imagem */
         }
 
+        /* Estilo da mensagem do gatinho que só aparece com a imagem */
+        .kitty-message {
+            display: none;
+            font-size: 1.5rem;
+            color: #800080; /* Cor roxa para a mensagem */
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px; /* Distância entre a imagem e a mensagem */
+        }
+
         /* Media Query para telas pequenas (dispositivos móveis) */
         @media (max-width: 768px) {
             .container {
@@ -136,8 +137,8 @@
 <body>
     <div class="container">
         <h1>Beazinha</h1>
-        <!-- Mensagem do gatinho logo abaixo do título -->
-        <div class="kitty-message">
+        <!-- Mensagem do gatinho que aparece abaixo do nome Beazinha -->
+        <div class="kitty-message" id="kittyMessage">
             Esse gatinho bonitinho merece um sorrisinho! 😊
         </div>
     </div>
@@ -158,12 +159,16 @@
         function showMessage() {
             var messageBox = document.getElementById("messageBox");
             var kittyImage = document.getElementById("kittyImage");
+            var kittyMessage = document.getElementById("kittyMessage");
 
             // Mostra a caixinha
             messageBox.style.display = "block"; 
 
             // Faz a imagem do gatinho aparecer no centro da tela
             kittyImage.style.display = "block";
+
+            // Faz a mensagem do gatinho aparecer logo abaixo do nome Beazinha
+            kittyMessage.style.display = "block";
         }
     </script>
 </body>
